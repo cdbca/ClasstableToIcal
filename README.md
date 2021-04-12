@@ -27,6 +27,26 @@ python3 main.py
 
 ## 文件中格式解释
 
+其中，各个字段的含义为：
+
+className - 课程名称
+startWeek - 开始周数
+endWeek - 结束周数
+weekday - 课程日期（周几）
+classTime - ​conf_classTime.json​ 中定义的时间段代号
+classroom - 教室
+weekStatus - 是否单双周排课：正常排课 = 0，单周排课 = 1，双周排课 = 2
+classSerial - 可选，课程序号
+classTeacher - 可选，教师名
+最后两个可选字段如果不需要可以关闭，只需在 ​excel_reader.py​ 中的 27 和 28 行将：
+`self.config["isClassSerialEnabled"] = [1, 7]self.config["isClassTeacherEnabled"] = [1, 8]`
+
+后方的方框中，要关闭的功能的 1 改成 0 即可（即 [0, 7] 或 ​[0, 8]​）。
+
+注意：若课程有不同排课方式或一周有多节课，需要分多条记录录入。
+
+
+
 ### temp_classInfo.xlsx
 
 课程的名称、起始周数等在文件里已标示清楚，weekStatus 是单双周标记。
